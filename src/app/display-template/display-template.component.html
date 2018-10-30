@@ -1,0 +1,16 @@
+<h1>{{ SelectedTemplate.name }}</h1>
+
+<ul>
+  <li> <strong>SearchColumn:</strong> {{ SelectedTemplate.SearchColumn }} </li>
+  <li><strong>Is the first line the header ? :</strong> {{ SelectedTemplate.firstLineIsHeader? "YES" : "NO" }}</li>
+  <li><strong>Key/Column Pairs:</strong>
+    <ul>
+      <li *ngFor="let Pair of SelectedTemplate.keyColumnPairs">
+        <ul>
+          <li><strong>Key : </strong>{{Pair.key}}</li>
+          <li><strong>Column : </strong>{{Pair.column}}</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>

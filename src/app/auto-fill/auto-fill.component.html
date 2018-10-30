@@ -1,0 +1,48 @@
+<h1>Autofill a form</h1>
+<h2 style="color:red">{{ errorMsg }}</h2>
+
+<ul>
+    <li>
+      <ul>
+        <li>
+          <strong>Select Template :</strong>
+        </li>
+        <li>
+            <select [(ngModel)]="selectedTemplate">
+                <option *ngFor="let template of templates" [ngValue]="template">{{template.name}}</option>
+              </select>
+        </li>
+      </ul>
+    </li>
+    <li>
+        <ul>
+          <li>
+            <strong>Word File :</strong>
+          </li>
+          <li>
+              <input type="file" accept=".docx"  (change)="wordFile = $event.target['files'][0];">
+            </li>
+        </ul>
+      </li>
+      <li>
+          <ul>
+            <li>
+              <strong>Excel File :</strong>
+            </li>
+            <li>
+                <input type="file" accept=".xlsx" (change)="excelFile =  $event.target['files'][0];">
+            </li>
+          </ul>
+        </li>
+    <li>
+        <ul>
+          <li>
+            <strong>Search For :</strong>
+          </li>
+          <li>
+            <input [value]="SearchFor" (input)="SearchFor = $event.target.value" />
+          </li>
+        </ul>
+      </li>
+</ul>
+<button (click)="autofill2();" style="display: block; margin-left: auto; margin-right: auto; width: 30%; height: 60px; ">Autofill</button>

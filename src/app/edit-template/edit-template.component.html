@@ -1,0 +1,61 @@
+<h1>Edit : {{ SelectedTemplate.name }}</h1>
+<h2 style="color:red">{{ errorMsg }}</h2>
+
+<ul>
+  <li>
+    <ul>
+      <li>
+        <strong>Name:</strong>
+      </li>
+      <li>
+        <input [value]="SelectedTemplate.name" (input)="SelectedTemplate.name = $event.target.value" />
+      </li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>
+        <strong>SearchColumn:</strong>
+      </li>
+      <li>
+        <input [value]="SelectedTemplate.SearchColumn" (input)="SelectedTemplate.SearchColumn = $event.target.value" />
+      </li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>
+        <strong>Is the first line the header ? :</strong>
+      </li>
+      <li>
+        <input type="checkbox" [checked]="SelectedTemplate.firstLineIsHeader" (change)="SelectedTemplate.firstLineIsHeader = !SelectedTemplate.firstLineIsHeader">
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <strong style="padding-left: 60px;">Key/Column Pairs:</strong>
+    <ul>
+      <li *ngFor="let Pair of SelectedTemplate.keyColumnPairs">
+        <ul>
+          <li>
+            <strong>Key : </strong>
+            <input [value]="Pair.key" (input)="Pair.key = $event.target.value" />
+          </li>
+          <li>
+            <strong>Column : </strong>
+            <input [value]="Pair.column" (input)="Pair.column = $event.target.value" />
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button (click)="AddPair()" style=" border-radius: 50%; height: 50px; width: 50px; border-color: black;">
+          <i class="material-icons">
+              add_box
+          </i>
+        </button>
+      </li>
+    </ul>
+  </li>
+</ul>
+<button (click)="SaveTemplate()" style="display: block; margin-left: auto; margin-right: auto; width: 30%; height: 60px; ">Save</button>

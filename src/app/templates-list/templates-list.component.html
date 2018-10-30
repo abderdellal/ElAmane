@@ -1,0 +1,13 @@
+<h1>Templates</h1>
+<h2 style="color:red">{{ errorMsg }}</h2>
+<ul>
+  <li *ngFor="let template of templates">
+    <a routerLink="/Templates/{{template.id}}">{{ template.name }}</a>
+    <button (click)="deleteTemplate(template)">
+      <i class="material-icons">delete</i>
+    </button>
+    <button routerLink="/Templates/edit/{{template.id}}">
+      <i class="material-icons">edit</i>
+    </button>
+  </li>
+</ul>

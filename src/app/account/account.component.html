@@ -1,0 +1,36 @@
+<h1>Edit Profile</h1>
+<h2 style="color:red">{{ errorMsg }}</h2>
+
+<div *ngIf="!editing">
+  <ul>
+    <li>
+      <strong>Email : </strong> {{ profile.email }} </li>
+  </ul>
+  <button (click)="editing = true;" style="display: block; margin-left: auto; margin-right: auto; width: 20%; height: 40px; ">Edit</button>
+</div>
+<div *ngIf="editing">
+
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <strong>Email:</strong>
+        </li>
+        <li>
+          <input [value]="profile.email" (input)="profile.email = $event.target.value" />
+        </li>
+      </ul>
+    </li>
+    <li>
+      <ul>
+        <li>
+          <strong>Password:</strong>
+        </li>
+        <li>
+          <input type="password" (input)="profile.password = $event.target.value" />
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <button (click)="SaveProfile()" style="display: block; margin-left: auto; margin-right: auto; width: 20%; height: 40px; ">Save</button>
+</div>
